@@ -1,0 +1,30 @@
+<div ng-app="myApp" ng-controller="loginCtrl" ng-cloak="" id="popupContainer">
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools">
+            <md-button>
+                <ng-md-icon icon="">home</ng-md-icon>
+            </md-button>
+            <md-button>
+                <ng-md-icon icon="">Contact</ng-md-icon>
+            </md-button>
+            <md-button>
+                <ng-md-icon icon="">About Us</ng-md-icon>
+            </md-button>
+            <span flex></span>
+            <form class="search-box">
+                <input class="search-box-input" type="text" required="required">
+                <button type="reset" class="delete"></button>
+            </form>
+            <md-button class="login-button" class="md-primary md-raised" ng-click="showAdvanced($event)">
+                <ng-md-icon icon="login">login</ng-md-icon>
+            </md-button>
+        </div>
+
+    </md-toolbar>
+    <div class="main-body">
+        <section id="portfolio-image">
+            <img src="https://s12.postimg.org/muqkp6ed9/programming_593312_1920.jpg" alt="cover"
+                 class="img-responsive"/>
+        </section>
+    </div>
+</div>

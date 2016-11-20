@@ -1,0 +1,69 @@
+
+<md-content laout="column" flex ng-controller="tab5Ctrl">
+
+
+
+    <md-card>
+
+        <md-toolbar class="md-table-toolbar md-default">
+            <div class="md-toolbar-tools">
+                <div flex></div>
+                <md-button class="md-icon-button" ng-click="loadStuff()">
+                    <md-icon>refresh</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-table-container>
+            <table md-table md-progress="promise">
+                <thead ng-if="!options.decapitate" md-head md-order="query.order" >
+                <tr md-row>
+                    <th md-column ><span>Goals</span></th>
+                    <th md-column ><span>1</span></th>
+                    <th md-column ><span>2</span></th>
+                    <th md-column ><span>3</span></th>
+                    <th md-column ><span>4</span></th>
+                    <th md-column ><span>5</span></th>
+                    <th md-column ><span>Student</span></th>
+                    <th md-column ><span>Peer</span></th>
+                    <th md-column ><span>Teacher</span></th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row   md-auto-select="options.autoSelect"  ng-repeat="assessment in assessments.data ">
+                    <td md-cell>{{assessment.goal}}</td>
+                    <td md-cell>{{assessment.one}}</td>
+                    <td md-cell>{{assessment.two}}</td>
+                    <td md-cell>{{assessment.three}}</td>
+                    <td md-cell>{{assessment.four}}</td>
+                    <td md-cell>{{assessment.five}}</td>
+                    <td md-cell >
+                        <md-checkbox ng-model="assessment.student"></md-checkbox>
+                    </td>
+                    <td md-cell>
+                        <md-checkbox ng-model="assessment.peer"></md-checkbox>
+                    </td>
+                    <td md-cell>
+                        <md-checkbox ng-model="assessment.teacher"></md-checkbox>
+                    </td >
+
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{assessments.count}}" md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+    </md-card>
+    <md-card>
+        <div layout="row" layout-wrap class="checkboxes">
+            <md-checkbox ng-model="options.rowSelection">Row Selection</md-checkbox>
+            <md-checkbox ng-model="options.multiSelect">Multiple Selection</md-checkbox>
+            <md-checkbox ng-model="options.autoSelect">Auto Selection</md-checkbox>
+            <md-checkbox ng-model="options.decapitate">Decapitate</md-checkbox>
+            <md-checkbox ng-model="options.largeEditDialog">Lard Edit Dialogs</md-checkbox>
+            <md-checkbox ng-model="options.boundaryLinks">Pagination Boundary Links</md-checkbox>
+            <md-checkbox ng-model="options.limitSelect" ng-click="toggleLimitOptions()">Pagination Limit Select</md-checkbox>
+            <md-checkbox ng-model="options.pageSelect">Pagination Page Select</md-checkbox>
+        </div>
+    </md-card>
+</md-content>
+

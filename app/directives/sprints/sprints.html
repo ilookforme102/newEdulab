@@ -1,0 +1,96 @@
+<!-- <div ng-controller="AppCtrl as ctrl" ng-cloak="" class="virtualRepeatdemoVerticalUsage" >
+    <md-content layout="row">
+
+        <md-virtual-repeat-container id="vertical-container">
+            <md-toolbar class="md-accent">
+                <h2 class="md-toolbar-tools">
+                    <span>Complete Blueprint</span>
+                </h2>
+            </md-toolbar>
+
+            <div md-virtual-repeat="item in ctrl.items" class="repeated-item" flex="">
+                <b>{{item}}</b>
+
+            </div>
+
+        </md-virtual-repeat-container>
+    </md-content>
+
+
+</div>
+-->
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+-->
+<div class="container"  ng-controller="AppCtrls as ctrl" ng-cloak="">
+    <div class="row" layout="row">
+        <div class="col-md-6" flex >
+            <div  class="virtualRepeatdemoVerticalUsage">
+                <div>
+                    <md-content layout="column">
+
+                        <md-virtual-repeat-container id="vertical-container">
+                            <md-toolbar class="md-primary md-hue-2">
+                                <b class="md-toolbar-tools">
+                                    <span>Active Blueprint</span>
+                                </b>
+                            </md-toolbar>
+                            <div md-virtual-repeat="item in ctrl.items" class="repeated-item" flex="">
+                                {{item}}
+                            </div>
+                        </md-virtual-repeat-container>
+                    </md-content>
+
+                </div>
+
+                <div>
+                    <md-content layout="column">
+
+
+                        <md-virtual-repeat-container id="vertical-container">
+                            <md-toolbar class="md-primary md-hue-2">
+                                <b class="md-toolbar-tools">
+                                    <span>Impending Blueprint</span>
+                                </b>
+                            </md-toolbar>
+                            <div md-virtual-repeat="item in ctrl.items" class="repeated-item" flex="">
+                                {{item}}
+                            </div>
+                        </md-virtual-repeat-container>
+                    </md-content>
+
+                </div>
+                <div>
+                    <br><br>
+                    <md-button class="md-fab md-primary md-hue-2" aria-label="Eat cake">
+                        <i class="material-icons">note_add</i>
+                    </md-button>
+                </div>
+            </div>
+        </div>
+        <div n class="virtualRepeatdemoVerticalUsage" flex="45" flex-offset="10">
+            <div class="col-md-6">
+                <div>
+                    <md-content layout="column">
+
+
+                        <md-virtual-repeat-container id="vertical-container">
+                            <md-toolbar class="md-primary md-hue-2">
+                                <b class="md-toolbar-tools">
+                                    <span>Completed Blueprint</span>
+                                </b>
+                            </md-toolbar>
+                            <div md-virtual-repeat="item in ctrl.items" class="repeated-item" flex="">
+                                {{item}}
+                            </div>
+                        </md-virtual-repeat-container>
+                    </md-content>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</>

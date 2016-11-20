@@ -1,0 +1,127 @@
+<div ng-app="myApp" class="tabsdemoDynamicHeight" ng-controller="leftnavCtrl" layout="column" style="height: 1000px;"
+     ng-cloak=""
+     class="sidenavdemoCustomSidenav">
+    <!--
+         <li><a ui-sref="home">Home</a>
+         <li><a ui-sref="progress">Progress</a></li>
+     -->
+    <!--top navigation, where you can check notificatio, view profile,etc
+    -->
+    <md-toolbar md-whiteframe="4" layout="row">
+        <md-list layout="row">
+
+            <!--<a ui-sref="home" class="md-icon-button"><md-button aria-label="Settings" ng-click="closeSidenav()" ng-disabled="!isOpen" >
+            </md-button></a>-->
+            <a ui-sref="home" ng-click="closeSidenav()" ng-disabled="!isOpen"> <md-button class="md-icon-button" aria-label="home">
+                <md-icon class="material-icons">home</md-icon>            </md-button></a>
+
+
+
+        </md-list>
+        <div class="md-toolbar-tools">
+
+            <span flex=""></span>
+
+            <md-button class="md-icon-button " aria-label="Notifications">
+                <md-tooltip md-direction="left">
+                    Notifications
+                </md-tooltip>
+                <md-icon md-font-set="material-icons">notifications</md-icon>
+            </md-button>
+            <span class="mdl-badge mdl-badge--overlap" data-badge="4"></span>
+
+            <md-button class="md-icon-button" aria-label="Dashboard">
+                <md-icon md-font-set="material-icons">dashboard</md-icon>
+            </md-button>
+
+            <md-menu md-position-mode="target-right target" md-offset="0 54">
+
+                <md-button aria-label="Current user"
+                           class="md-button top-link"
+                           ng-click="openMenu($mdOpenMenu, $event)">
+                    <md-icon md-font-set="material-icons"><i class="material-icons">account_circle</i></md-icon>
+                </md-button>
+
+                <md-menu-content width="4">
+
+                    <md-menu-item>
+
+                        <md-button>
+                            <md-icon md-font-set="material-icons">face</md-icon>
+                            View profile
+                        </md-button>
+
+                    </md-menu-item>
+
+                    <md-menu-item>
+
+                        <md-button>
+                            <md-icon md-font-set="material-icons">trending_up</md-icon>
+                            Upgrade plan
+                        </md-button>
+
+                    </md-menu-item>
+
+                    <md-menu-divider></md-menu-divider>
+
+                    <md-menu-item>
+
+                        <md-button ng-click="redirect()">
+                            <md-icon md-font-set="material-icons">exit_to_app</md-icon>
+                            Sign out
+                        </md-button>
+
+                    </md-menu-item>
+
+                </md-menu-content>
+
+            </md-menu>
+
+        </div>
+
+    </md-toolbar>
+
+    <div class="container" layout="row" flex>
+        <md-sidenav md-component-id="l-sidenav" class="locked-sidebar" md-is-locked-open="true" md-whiteframe="4">
+            <md-list>
+
+                <md-list-item ui-sref="home.manage" ng-click="toggleExpanded(1)" ng-class="{ 'side-button-active': isSelected(1) && menuIsselect }">
+                    <i ng-class="{ 'side-icon-active': isSelected(1) && menuIsselect,'side-icon-inactive': !isSelected(1), 'material-icons': true}">assignment</i>
+                </md-list-item>
+                <md-list-item ui-sref=".progress" ng-click="toggleExpanded(2)" ng-class="{ 'side-button-active': isSelected(2) && menuIsselect }">
+                    <i ng-class="{ 'side-icon-active': isSelected(2) && menuIsselect,'side-icon-inactive': !isSelected(2), 'material-icons': true}">person</i>
+                </md-list-item>
+                <md-list-item ng-click="toggleExpanded(3)" ng-class="{ 'side-button-active': isSelected(3) && menuIsselect }">
+                    <i ng-class="{ 'side-icon-active': isSelected(3) && menuIsselect,'side-icon-inactive': !isSelected(3), 'material-icons': true}">list</i>
+                </md-list-item>
+                <md-list-item ng-click="toggleExpanded(4)" ng-class="{ 'side-button-active': isSelected(4) && menuIsselect }">
+                    <i ng-class="{ 'side-icon-active': isSelected(4) && menuIsselect,'side-icon-inactive': !isSelected(4), 'material-icons': true}">laptop</i>
+                </md-list-item>
+                <md-list-item ui-sref="home" ng-click="toggleExpanded(5)" ng-class="{ 'side-button-active': isSelected(5) && menuIsselect }">
+                    <i ng-class="{ 'side-icon-active': isSelected(5) && menuIsselect,'side-icon-inactive': !isSelected(5), 'material-icons': true}">phone</i>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+        <md-sidenav md-component-id="t-sidenav" class="toggleable-sidebar" ng-show="isOpen" md-is-locked-open="true"
+                    md-whiteframe="4">
+
+        <div ui-view>
+
+        </div>
+        </md-sidenav>
+        <!-- default for homepage, contain sprints to show -->
+        <md-content  flex="100" ng-show="!isOpen">
+            <div sprint>
+
+            </div>
+
+        </md-content>
+
+    </div>
+
+</div>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+-->

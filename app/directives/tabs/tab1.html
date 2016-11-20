@@ -1,0 +1,50 @@
+<md-content ng-controller="tab1Ctrl"   layout-padding>
+
+    <div>
+        <form name="userForm">
+
+            <div layout-gt-xs="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Title</label>
+                    <input ng-model="framework.title">
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Enter startDate</label>
+                    <md-datepicker ng-model="framework.startDate"></md-datepicker>
+                </md-input-container>
+            </div>
+            <div layout-gt-xs="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Grade</label>
+                    <input ng-model="framework.grade">
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Enter endDate</label>
+                    <md-datepicker ng-model="framework.endDate"></md-datepicker>
+                </md-input-container>
+            </div>
+            <div layout="row" layout-wrap flex>
+                <div flex="25" ng-repeat="(key, value) in  framework.subjects">
+                    <md-checkbox ng-model="value" aria-label="Checkbox 1">
+                        {{key}}: {{ value }}
+                    </md-checkbox>
+                </div>
+            </div>
+            <div ng-controller="BasicDemoCtrl as ctrl"  ng-cloak="" class="chipsdemoBasicUsage" >
+
+                <md-content class="md-padding" layout="column">
+
+                    <h2 class="md-title">Keywords:</h2>
+
+                    <md-chips ng-model="ctrl.tags" readonly="ctrl.readonly" md-removable="ctrl.removable" placeholder="Enter a tag" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Tag"></md-chips>
+
+                    <br>
+
+                </md-content>
+            </div>
+
+        </form>
+    </div>
+</md-content>

@@ -1,0 +1,41 @@
+/* style for top navigation */
+.md-nav-bar {
+    background-color: rgb(63,81,181) !important;
+    color: rgba(255,255,255,0.87) !important;
+}
+
+.md-nav-bar .md-unselected {
+    color: rgba(255,255,255,0.87) !important;
+}
+
+.top-link {
+    padding: 0 25px 0 12px;
+}
+
+.top-link span {
+    text-transform: initial;
+}
+
+.top-link::before {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    top: 0px;
+    right: 8px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.87) transparent transparent;
+    border-top: 6px solid rgba(255, 255, 255, 0.87);
+    margin: 14px 0px 0px;
+    transition: border-color 0.2s ease;
+}
+
+.md-button.md-fab.md-fab-top-right {
+    top: 142px;
+}

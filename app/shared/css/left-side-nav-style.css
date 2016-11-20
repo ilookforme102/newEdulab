@@ -1,0 +1,49 @@
+.lightgreen { background-color: lightgreen;}
+.section{ height: 100%;}
+.locked-sidebar { background-color: #FAFAFA;}
+ div.container {
+     height: 100%;
+ }
+.side-button-active{
+    background-color: #69F0AE;
+}
+
+.side-icon-active{
+    color: #FFFFFF;
+}
+
+.side-icon-inactive{
+    color: #000000;
+}
+
+.side-toolbar{
+    background-color: #35A62D;
+    font-color: #FAFAFA;
+}
+
+.md-button.sidebar-button{
+    min-width: 2px;
+    max-width: 100%;
+    min-height: 2px;
+    max-height: 50px;
+    margin-left: 12px;
+    width: 51px;
+    padding-left: 0px;
+}
+
+md-sidenav.locked-sidebar,
+md-sidenav.md-locked-open.locked-sidebar,
+md-sidenav.md-closed.md-locked-open-add-active.locked-sidebar {
+    min-width: 4em !important;
+    width: 85vw !important;
+    max-width: 4em !important;
+    overflow-x: hidden;
+}
+
+md-sidenav.toggleable-sidebar,
+md-sidenav.md-locked-open.toggleable-sidebar,
+md-sidenav.md-closed.md-locked-open-add-active.toggleable-sidebar {
+    min-width: 0em !important;
+    width: 100vw !important;
+    max-width: 100% !important;
+}

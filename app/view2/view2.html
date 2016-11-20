@@ -1,0 +1,44 @@
+<section ng-show="isSelected(1)" layout="column">
+    <md-tabs md-dynamic-height="" md-border-bottom="" md-stretch-tabs="always">
+
+        <div>
+            <md-tab label="Framework" ui-sref=".tab1">
+                <md-content class="md-padding" ui-view >
+
+            </md-content>
+            </md-tab>
+            <md-tab label="Goals" ui-sref=".tab2">
+                <md-content class="md-padding" ui-view >
+
+                </md-content>
+            </md-tab>
+            <md-tab label="Scenario" ui-sref=".tab3">
+                <md-content class="md-padding" ui-view>
+
+
+                    <!--this is description box -->
+
+                </md-content>
+            </md-tab>
+
+            <md-tab label="Activities" ui-sref=".tab4">
+                <md-content class="md-padding" ui-view>
+
+                </md-content>
+            </md-tab>
+            <md-tab label="Assessment" ui-sref=".tab5">
+                <md-content class="md-padding"  ui-view>
+
+                </md-content>
+            </md-tab>
+            <md-tab label="Check lists" ui-sref=".tab6">
+                <md-content class="md-padding"  ui-view>
+
+                </md-content>
+            </md-tab>
+
+        </div>
+
+    </md-tabs>
+
+</section>

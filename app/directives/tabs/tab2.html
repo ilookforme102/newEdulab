@@ -1,0 +1,40 @@
+<md-content ng-controller="tab2Ctrl" class="md-padding">
+    <form  ng-cloak>
+        <md-toolbar ng-click="isClick =!isClick" class="md-primary md-hue-2">
+            <b class="md-toolbar-tools">
+                <span>aim of this unit is...</span>
+            </b>
+        </md-toolbar>
+        <md-list-item ng-repeat="name in names" class="noright" ng-show="isClick " layout="row">
+            <div flex="80"><b>{{name}}</b></div>
+            <div flex="20"><md-button  ng-click="removeName(name)">Remove</md-button></div>
+        </md-list-item>
+        <md-input-container layout="row">
+            <div flex="80"> <label>aims</label>
+            <input ng-model="enteredName" type="text">
+        </div>
+           <div flex> <md-button class="md-raised md-primary" ng-click="addName()" >Add</md-button></div>
+
+        </md-input-container>
+    </form>
+    <md-divider></md-divider>
+    <form ng-cloak>
+        <md-toolbar ng-click="isSkill =!isSkill" class="md-primar md-hue-2">
+            <b class="md-toolbar-tools">
+                <span>skills needed is...</span>
+            </b>
+        </md-toolbar>
+        <md-list-item ng-repeat="skill in skills" class="noright" ng-show="isSkill ">
+            <div flex="80"><b>{{skill}}</b></div>
+            <div flex="20" ><md-button  ng-click="removeSkill(skill)">Remove</md-button></div>
+        </md-list-item>
+        <md-input-container layout="row">
+            <div flex="80"><label>Skills</label>
+            <input ng-model="enteredSkill" type="text"></div>
+            <div flex><md-button class="md-raised md-primary" ng-click="addSkill()" value="add">Add</md-button></div>
+
+        </md-input-container>
+
+    </form>
+
+</md-content>
