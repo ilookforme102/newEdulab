@@ -1,39 +1,68 @@
-<div ng-controller="tab4Ctrl">
-    <h3>Dropzone {{$index + 1}}</h3>
-    <ul dnd-list="containers"
-        dnd-allowed-types="['containerType']"
-        dnd-external-sources="true"
-        dnd-dragover="dragoverCallback(event, index, external, type)"
-        dnd-drop="dropCallback(event, index, item, external, type, 'containerType')">
-        <li ng-repeat="items in containers"
-            dnd-draggable="items"
-            dnd-type="'containerType'"
-            dnd-effect-allowed="copyMove"
-            dnd-moved="containers.splice($index, 1)">
-            <div class="container-element box box-blue">
-                <h3>Container</h3>
-                <ul dnd-list="items"
-                    dnd-allowed-types="['itemType']"
-                    dnd-horizontal-list="true"
-                    dnd-external-sources="true"
-                    dnd-dragover="dragoverCallback(event, index, external, type)"
-                    dnd-drop="dropCallback(event, index, item, external, type, 'itemType')"
-                    dnd-inserted="logEvent('Element was inserted at position ' + index, event)"
-                    class="itemlist">
-                    <li ng-repeat="item in items"
-                        dnd-draggable="item"
-                        dnd-type="'itemType'"
-                        dnd-effect-allowed="copyMove"
-                        dnd-dragstart="logEvent('Started to drag an item', event)"
-                        dnd-moved="items.splice($index, 1); logEvent('Item moved', event)"
-                        dnd-copied="logEvent('Item copied', event)"
-                        dnd-canceled="logEvent('Drag operation canceled', event)"
-                        dnd-dragend="logEvent('Drag operation ended', event)">
-                        {{item.label}}
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
+<style>
+    .flex-container {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
+    }
+
+    .flex-item {
+        padding: 5px;
+        width: 50px;
+        height: 50px;
+        margin-top: 10px;
+        line-height: 150px;
+        color: #090909;
+        font-weight: bold;
+        font-size: 1em;
+        text-align: center;
+    }
+    .flex-item:nth-of-type(1){
+        background: red
+
+    }
+    .flex-item:nth-of-type(2){
+        background: blue
+    }
+    .flex-item:nth-of-type(3){
+        background: yellow;
+    }
+    .flex-item:nth-of-type(4){
+        background: green;
+    }
+</style>
+<div  ng-controller="tab4Ctrl">
+
+    <div >
+        <div >
+            <div ng-repeat="list  in models.lists" flex="40">
+                <div >
+                    <div >
+                        <h3>List {{listName}}</h3>
+                    </div>
+                    <div  ng-include="'directives/tabs/tab4.2.html'"></div>
+                </div>
             </div>
-        </li>
-    </ul>
+
+        </div>
+
+        <div view-source="simple"></div>
+
+    </div>
+
+
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Generated Model</h3>
+            </div>
+            <div class="panel-body">
+                <pre class="code">{{modelAsJson}}</pre>
+            </div>
+
 </div>
