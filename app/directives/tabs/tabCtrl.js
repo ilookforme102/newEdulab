@@ -321,13 +321,25 @@ myApp.controller("tab4Ctrl", function($scope) {
                 {label: "Item A" },
                 {label: "Item B" },
                 {label: "Item C" },
-                {label: "Item D" }
-                ],
-            "B": [
+                {label: "Item D" },
+                {label: "Item G" },
+                {label: "Item H" },
+                {label: "Item F" },
+                {label: "Item F" },
+                {label: "Item G" },
+                {label: "Item A" },
+                {label: "Item B" },
+                {label: "Item C" },
+                {label: "Item D" },
+                {label: "Item G" },
+                {label: "Item H" },
                 {label: "Item F" },
                 {label: "Item F" },
                 {label: "Item G" },
                 {label: "Item H" }
+                ],
+            "B": [
+
 
 
     ],

@@ -1,9 +1,53 @@
 <!-- The dnd-list directive allows to drop elements into it.
      The dropped data will be added to the referenced list -->
+<style>
 
-<md-grid-list md-cols-gt-md="12" md-cols="3" md-cols-md="8"
-              md-row-height-gt-md="1:1" md-row-height="4:3"
-              md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="4px"
+    .flex-container{
+        display: inline-block;
+
+        border:1px solid grey;
+        border-radius: 2px;
+        width: auto;
+        height: 100px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
+    }
+
+    .flex-item {
+        padding: 5px;
+        width: 50px;
+        height: 50px;
+        margin-top: 10px;
+        line-height: 150px;
+        color: #090909;
+        font-weight: bold;
+        font-size: 1em;
+        text-align: center;
+        background-color: grey;
+    }
+    .flex-item:nth-of-type(1){
+        background: red
+
+    }
+    .flex-item:nth-of-type(2){
+        background: blue
+    }
+    .flex-item:nth-of-type(3){
+        background: yellow;
+    }
+    .flex-item:nth-of-type(4){
+        background: green;
+    }
+</style>
+<ul class="flex-container" flex=""
         dnd-list="list"
     dnd-horizontal-list="true"
     dnd-disable-if="list.length >= models.max"
@@ -13,19 +57,14 @@
          transfer the object that was assigned to it. If an element was
          dragged away, you have to remove it from the original list
          yourself using the dnd-moved attribute -->
-   <md-grid-tile md-colspan-gt-sm="1"
-                 md-rowspan-gt-sm="1"
-                 ng-style="{
-            'background': '#d32f2f'
-          }"
-           ng-repeat="item in list"
+   <li class="flex-item"
+                ng-repeat="item in list"
         dnd-draggable="item"
         dnd-moved="list.splice($index, 1)"
         dnd-effect-allowed="move"
         dnd-selected="models.selected = item"
         ng-class="{'selected': models.selected === item}"
     >
-       <md-grid-tile-footer><h4>{{item.label}}</h4></md-grid-tile-footer>
-   </md-grid-tile>
-</md-grid-list>
-<md-divider md-inset ng-if="!$last"></md-divider>
+      {{item.label}}
+   </li>
+</ul>
