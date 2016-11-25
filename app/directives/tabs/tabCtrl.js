@@ -311,49 +311,46 @@ myApp.controller('tab6Ctrl', function($scope) {
     }
 });
 myApp.controller("tab4Ctrl", function($scope) {
-    $scope.numberTeam =
-    $scope.maxItem = 5;
+    $scope.states = {};
+    $scope.states.activeItem = 'item1';
+    $scope.items = [{
+        id: 'item1',
+        title: 'Students'
+    }, {
+        id: 'item2',
+        title: 'Teacher'
+    }, {
+        id: 'item3',
+        title: 'Activity'
+    }];
+    $scope.addTeam = function () {
+        $scope.teamSample = [];
+        $scope.models.lists.push($scope.teamSample);
+
+    };
+    $scope.maxItem = 0;
     $scope.models = {
         selected: null,
-        max: $scope.maxItem,
-        lists: {
-            "A": [
-                {label: "Item A" },
-                {label: "Item B" },
-                {label: "Item C" },
-                {label: "Item D" },
-                {label: "Item G" },
-                {label: "Item H" },
-                {label: "Item F" },
-                {label: "Item F" },
-                {label: "Item G" },
-                {label: "Item A" },
-                {label: "Item B" },
-                {label: "Item C" },
-                {label: "Item D" },
-                {label: "Item G" },
-                {label: "Item H" },
-                {label: "Item F" },
-                {label: "Item F" },
-                {label: "Item G" },
-                {label: "Item H" }
-                ],
-            "B": [
+
+        lists: [
+            [
+                {label: "name1",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+                {label: "name2 ",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+                {label: "name3",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+                {label: "name4",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+                {label: "name5",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+                {label: "name6",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+                {label: "name7",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+                {label: "name9",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+                {label: "name10",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+                {label: "name11",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+                {label: "name12",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+                {label: "name13",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+            ],
 
 
-
-    ],
-            "C": [
-
-
-
-            ]
-        },
-        lists2:[
-
-            {label: "Item A" },
-            {label: "Item A" }
         ]
+
     };
 
     // Generate initial model
@@ -363,6 +360,7 @@ myApp.controller("tab4Ctrl", function($scope) {
     $scope.$watch('models', function(model) {
         $scope.modelAsJson = angular.toJson(model, true);
     }, true);
+
 
 
 });

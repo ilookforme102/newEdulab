@@ -1,25 +1,42 @@
 
-<div  ng-controller="tab4Ctrl">
+<md-content  ng-controller="tab4Ctrl">
+    <form  ng-cloak>
+        <div>
+            <md-subheader  class=" md-primary">
+                <h2>How will the team be formed?</h2>
+            </md-subheader>
+            <section layout="row" layout-sm="column"  layout-wrap>
+                <md-button ng-repeat="item in items" ng-class="{'md-primary md-raised': item.id == states.activeItem}" ng-click="states.activeItem=item.id">{{item.title}}</md-button>
+                <md-input-container ng-show="states.activeItem === 'item3'">
+                    <input flex="30" type="number" ng-model="maxItem" >
+                </md-input-container>
+            </section>
 
-    <div >
-        <div >
-            <div layout="row" ng-repeat="(listName,list ) in models.lists" >
+        </div>
+        <div ng-show="states.activeItem === 'item3'">
+            <div layout="row" ng-repeat="(listName,list ) in models.lists " >
                 <div flex >
                     <div >
-                        <h3>List {{listName}}</h3>
+                        <h3>Group {{listName}}</h3>
                     </div>
                     <md-content  ng-include="'directives/tabs/tab4.2.html'"></md-content>
                 </div>
             </div>
+            <md-button class="md-raised md-primary" ng-click="addTeam()">Add Team</md-button>
 
         </div>
 
         <div  view-source="simple"></div>
+        <div>
+            <md-subheader class=" md-primary">
+                <h2>Which activities will the students perform ?</h2>
+            </md-subheader>
 
-    </div>
+        </div>
 
-            <div class="panel-body">
-                <pre class="code">{{modelAsJson}}</pre>
-            </div>
-    </div>
-</div>
+        <div class="panel-body">
+            <pre class="code">{{modelAsJson}}</pre>
+        </div>
+
+    </form>
+</md-content>
