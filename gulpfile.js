@@ -2,7 +2,7 @@
  * Created by Khoa's PC on 10/31/2016.
  */
 var gulp = require('gulp');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
 gulp.task('default', [], function () {

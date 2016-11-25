@@ -310,48 +310,73 @@ myApp.controller('tab6Ctrl', function($scope) {
         console.log('limit: ', limit);
     }
 });
+
+/* tab4 controller */
 myApp.controller("tab4Ctrl", function($scope) {
     $scope.states = {};
     $scope.states.activeItem = 'item1';
     $scope.items = [{
         id: 'item1',
-        title: 'Students'
+        title: 'Individual'
     }, {
         id: 'item2',
-        title: 'Teacher'
+        title: 'Pair'
     }, {
         id: 'item3',
-        title: 'Activity'
+        title: 'Team'
     }];
+    $scope.role = null;
+    $scope.roleLists = [{
+        color: 'Red',
+        role: 'Leader'
+    }, {
+        color: 'blue',
+        role: 'Presenter'
+    }, {
+        color: 'yellow',
+        role: 'Time keeper'
+    },
+        {
+            color: 'green',
+            role: 'Recorder'
+        },
+        {
+            color: 'pink',
+            role: 'member'
+        }];
     $scope.addTeam = function () {
         $scope.teamSample = [];
         $scope.models.lists.push($scope.teamSample);
 
     };
+    $scope.listStudents = [
+
+        {label: "name1",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+        {label: "name2 ",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+        {label: "name3",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+        {label: "name4",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+        {label: "name5",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+        {label: "name6",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+        {label: "name7",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+        {label: "name9",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+        {label: "name10",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+        {label: "name11",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+        {label: "name12",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+        {label: "name13",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
+    ];
+
     $scope.maxItem = 0;
     $scope.models = {
         selected: null,
 
-        lists: [
-            [
-                {label: "name1",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-                {label: "name2 ",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-                {label: "name3",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-                {label: "name4",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-                {label: "name5",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-                {label: "name6",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-                {label: "name7",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-                {label: "name9",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-                {label: "name10",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-                {label: "name11",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-                {label: "name12",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-                {label: "name13",src:"http://www.casecoco.com/data/design/sell/img/20141230/justin-bieber-looking-throw-pillow-covers-20-quot-x-20-quot_7F5C871666F716576888C25D961D4B45_t_200_200.png"},
-            ],
+        lists: [ $scope.listStudents,[]]
 
 
-        ]
+
+
 
     };
+
 
     // Generate initial model
 

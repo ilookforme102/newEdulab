@@ -13,6 +13,26 @@
             </section>
 
         </div>
+        <div>
+        <md-subheader  class=" md-primary">
+            <h2>Will students have role</h2>
+        </md-subheader>
+        <section layout="row" layout-sm="column"  layout-wrap>
+            <md-button  ng-class="{'md-primary md-raised': role == true}" ng-click="role = true">Yes</md-button>
+            <md-button  ng-class="{'md-primary md-raised': role == false}" ng-click="role = false">No</md-button>
+        </section>
+        </div>
+        <div ng-show="role ==true">
+            <md-list ng-repeat="roleList in roleLists">
+                <md-list-item>
+
+                    <md-button ng-style="{'background-color':roleList.color}"></md-button>
+                    <md-input-container>
+                    <input type="text" ng-model="roleList.role">
+                    </md-input-container>
+                </md-list-item>
+            </md-list>
+        </div>
         <div ng-show="states.activeItem === 'item3'">
             <div layout="row" ng-repeat="(listName,list ) in models.lists " >
                 <div flex >
@@ -23,7 +43,6 @@
                 </div>
             </div>
             <md-button class="md-raised md-primary" ng-click="addTeam()">Add Team</md-button>
-
         </div>
 
         <div  view-source="simple"></div>
