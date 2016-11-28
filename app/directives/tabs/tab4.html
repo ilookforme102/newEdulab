@@ -53,9 +53,96 @@
 
         </div>
 
-        <div class="panel-body">
-            <pre class="code">{{modelAsJson}}</pre>
-        </div>
+
 
     </form>
+    <!-- <md-table-container>
+        <table md-table >
+            <thead md-head >
+            <tr md-row>
+                <th md-column "><span>Activity</span></th>
+                <th md-column ><span>Description</span></th>
+                <th md-column >Start</th>
+                <th md-column >End</th>
+                <th md-column >Feedback</th>
+
+            </tr>
+            </thead>
+            <tbody md-body>
+            <tr md-row  ng-repeat="activity in activities">
+                <td md-cell>{{activity.name}}</td>
+                <td md-cell>{{activity.description}}</td>
+                <td md-cell>{{activity.startDate}}</td>
+                <td md-cell>{{activity.endDate}}</td>
+                <td md-cell>{{activity.feedback}}</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </md-table-container> -->
+
+    <md-table-container>
+        <table md-table >
+            <thead  md-head >
+            <tr md-row>
+
+
+                <th md-column md-numeric ><span>Activity</span></th>
+                <th md-column md-numeric >
+                    <md-icon>comments</md-icon>
+                    <span>Description</span>
+                </th>
+                <th md-column md-numeric ><span>Start date</span></th>
+                <th md-column md-numeric ><span>End date</span></th>
+                <th md-column >Feedback </th>
+
+            </tr>
+            </thead>
+            <tbody md-body>
+            <tr md-row   ng-repeat="activity in activities.data ">
+
+                <td md-cell>
+                    <md-input-container class="md-block" >
+
+                        <input ng-model="activity.name">
+                    </md-input-container>
+
+                </td>
+                <td md-cell ng-click="editComment($event, activity)" ng-class="{'md-placeholder': !activity.description}">
+                    <span>{{activity.description || 'Add a description'}}</span>
+                <td md-cell >
+                    <md-input-container>
+                        <label> Start Date</label>
+                        <md-datepicker ng-model="activity.startDate.value"></md-datepicker>
+                    </md-input-container>
+                </td>
+                <td md-cell>
+                    <md-input-container>
+                        <label> End Date</label>
+                        <md-datepicker ng-model="activity.endDate.value"></md-datepicker>
+                    </md-input-container>
+                </td>
+                <td md-cell>
+                    <md-checkbox ng-model="activity.feedback.value"></md-checkbox>
+                </td>
+
+            </tr>
+            <tr md-row layout="row">
+                <td colspan="5" >
+                    <span flex="80"></span>
+                    <md-button  class="md-primary" flex ng-click="addRow()"> Button  </md-button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </md-table-container>
+    <div>
+        <md-subheader  class=" md-primary">
+            <h2>Will students have role</h2>
+        </md-subheader>
+    </div>
+
 </md-content>
+<div class="panel-body">
+    <pre class="code">{{modelAsJson}}</pre>
+</div>

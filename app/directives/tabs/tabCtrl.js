@@ -312,7 +312,11 @@ myApp.controller('tab6Ctrl', function($scope) {
 });
 
 /* tab4 controller */
-myApp.controller("tab4Ctrl", function($scope) {
+
+
+myApp.controller("tab4Ctrl",['$mdEditDialog','$scope', function($mdEditDialog,$scope) {
+    'use strict';
+
     $scope.states = {};
     $scope.states.activeItem = 'item1';
     $scope.items = [{
@@ -371,10 +375,6 @@ myApp.controller("tab4Ctrl", function($scope) {
 
         lists: [ $scope.listStudents,[]]
 
-
-
-
-
     };
 
 
@@ -386,6 +386,59 @@ myApp.controller("tab4Ctrl", function($scope) {
         $scope.modelAsJson = angular.toJson(model, true);
     }, true);
 
+    /* Data for the table under team picker */
+
+    $scope.activities = {
+        "data": [
+            {
+                "name": "Explore",
+                "description":"",
+                "startDate": {"value": ""},
+                "endDate": {"value": ""},
+                "feedback": {"value": ""}
+
+            }, {
+                "name": "Research",
+                "description":"",
+                "startDate": {"value": ""},
+                "endDate": {"value": ""},
+                "feedback": {"value": ""}
+            }
+
+        ]
+    }
+    $scope.editComment = function (event, activity) {
+        event.stopPropagation(); // in case autoselect is enabled
+
+        var editDialog = {
+            modelValue: activity.description,
+            placeholder: 'Add a comment',
+            save: function (input) {
+
+                activity.description = input.$modelValue;
+            },
+            targetEvent: event,
+            title: 'Add a description',
+            validators: {
+                'md-maxlength': 100
+            }
+        };
+
+        var promise;
 
 
-});
+        promise = $mdEditDialog.large(editDialog);
+
+    };
+    $scope.addRow = function () {
+        var extraRow = {
+            "name": "",
+            "description":"",
+            "startDate": {"value": ""},
+            "endDate": {"value": ""},
+            "feedback": {"value": ""}
+        };
+        $scope.activities.data.push(extraRow);
+        return $scope.activities;
+    }
+}]);
