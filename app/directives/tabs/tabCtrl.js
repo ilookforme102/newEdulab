@@ -441,4 +441,23 @@ myApp.controller("tab4Ctrl",['$mdEditDialog','$scope', function($mdEditDialog,$s
         $scope.activities.data.push(extraRow);
         return $scope.activities;
     }
+    $scope.tools = [];
+    $scope.sources = [];
+
+    $scope.addTool = function() {
+        $scope.tools.push({'title': $scope.newTool, 'done':false})
+        $scope.newTool = ''
+    }
+
+    $scope.deleteTool = function(index) {
+        $scope.tools.splice(index, 1);
+    }
+    $scope.addSource = function() {
+        $scope.sources.push({'title': $scope.newSource, 'done':false})
+        $scope.newSource = ''
+    }
+
+    $scope.deleteSource = function(index) {
+        $scope.sources.splice(index, 1);
+    }
 }]);

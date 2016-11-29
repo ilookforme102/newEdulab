@@ -1,4 +1,50 @@
+<style>
+    input.input-text-chip {
+        margin-right: 5px;
+        background: transparent;
+        width: 80px;
+        padding: 8px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    input.input-text-chip:focus, input:active {
+        outline: 0;
+        width: 200px;
+        border-bottom-color: #F97D75;
+    }
 
+    button.button-chip {
+        background-color: #F97D75;
+        border: 0;
+        padding: 8px 20px;
+        color: white;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+
+    ul.ul-chip {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 25px;
+    }
+
+    li.li-chip {
+        border: 1px solid black;
+        display: inline-block;
+        padding: 5px 10px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+    }
+
+    [contenteditable]:focus, [contenteditable]:active {
+        outline: 0;
+    }
+
+
+</style>
 <md-content  ng-controller="tab4Ctrl">
     <form  ng-cloak>
         <div>
@@ -87,13 +133,13 @@
             <tr md-row>
 
 
-                <th md-column md-numeric ><span>Activity</span></th>
-                <th md-column md-numeric >
+                <th md-column  ><span>Activity</span></th>
+                <th md-column  >
                     <md-icon>comments</md-icon>
                     <span>Description</span>
                 </th>
-                <th md-column md-numeric ><span>Start date</span></th>
-                <th md-column md-numeric ><span>End date</span></th>
+                <th md-column  ><span>Start date</span></th>
+                <th md-column  ><span>End date</span></th>
                 <th md-column >Feedback </th>
 
             </tr>
@@ -136,12 +182,44 @@
             </tbody>
         </table>
     </md-table-container>
+    <!-- Additional information -->
     <div>
         <md-subheader  class=" md-primary">
-            <h2>Will students have role</h2>
+            <h2>Where will students find relevent information</h2>
         </md-subheader>
-    </div>
+        <form name="sourcesFrm" ng-submit="addSource()">
+            <md-input-container>
+                <input class="input-text-chip" type="text" name="newSource" ng-model="newSource" required />
+            </md-input-container>
+            <md-button ng-disabled="sourcesFrm.$invalid" class="button-chip" ng-click="addSource()">Add</md-button>
+        </form>
 
+        <ul class="ul-chip">
+            <li ng-repeat="source in sources" class="li-chip">
+                <md-icon md-svg-icon="md-close" ng-click="deleteSource($index)"></md-icon>
+                <b>{{source.title}}</b>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <md-subheader  class=" md-primary">
+            <h2>What kind of tools will the students use in their work</h2>
+        </md-subheader>
+
+        <form name="toolsFrm" ng-submit="addTool()">
+            <md-input-container>
+                <input class="input-text-chip" type="text" name="newTool" ng-model="newTool" required />
+            </md-input-container>
+            <md-button ng-disabled="toolsFrm.$invalid" class="button-chip" ng-click="addTool()">Add</md-button>
+        </form>
+
+        <ul class="ul-chip">
+            <li class="li-chip" ng-repeat="tool in tools" >
+                <md-icon md-svg-icon="md-close" ng-click="deleteTool($index)"></md-icon>
+                <b>{{tool.title}}</b>
+            </li>
+        </ul>
+    </div>
 </md-content>
 <div class="panel-body">
     <pre class="code">{{modelAsJson}}</pre>
