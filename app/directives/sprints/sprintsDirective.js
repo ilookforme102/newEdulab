@@ -11,8 +11,24 @@ myApp.directive('sprint', function () {
     myApp.controller('AppCtrls', function ($scope) {
 
         $scope.models = [
-            {listName: "A", items: [], dragging: false},
-            {listName: "B", items: [], dragging: false}
+            {listName: "Active Blueprints", items: [], dragging: false},
+            {listName: "Completed Blueprints", items: [], dragging: false},
+            {
+                listName: "Impending Blueprints",
+                items: [
+                    {label: "Sprint 1" },
+                    {label: "Sprint 2" },
+                    {label: "Sprint 3" },
+                    {label: "Sprint 4" },
+                    {label: "Sprint 5" },
+                    {label: "Sprint 6" },
+                    {label: "Sprint 7" },
+                    {label: "Sprint 8" }
+
+                ],
+                dragging: false
+            }
+
         ];
 
         /**
@@ -61,12 +77,6 @@ myApp.directive('sprint', function () {
             list.items = list.items.filter(function(item) { return !item.selected; });
         };
 
-        // Generate the initial model
-        angular.forEach($scope.models, function(list) {
-            for (var i = 1; i <= 4; ++i) {
-                list.items.push({label: "Item " + list.listName + i});
-            }
-        });
 
         // Model to JSON for demo purpose
         $scope.$watch('models', function(model) {

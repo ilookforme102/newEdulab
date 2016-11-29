@@ -1,22 +1,21 @@
 
 <div class="container"  ng-controller="AppCtrls as ctrl" ng-cloak="">
-    <h1>Demo: Multiselect Lists</h1>
 
     <div class="alert alert-success">
         <strong>Instructions:</strong>
         Click on items to select/unselect them. When dragging, all selected items will be moved at once.
     </div>
 
-    <div class="multiDemo row">
+    <div class="multiDemo row"  >
 
-        <div class="col-md-8">
-            <div class="row">
-                <div ng-repeat="list in models" class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">List {{list.listName}}</h3>
+        <div>
+            <div >
+                <div layout="row"  ng-repeat="list in models" >
+                    <div class>
+                        <div >
+                            <h3 >List {{list.listName}}</h3>
                         </div>
-                        <div class="panel-body" ng-include="'directives/sprints/view-sprint.html'"></div>
+                        <div  ng-include="'directives/sprints/view-sprint.html'" flex ></div>
                     </div>
                 </div>
             </div>
@@ -25,13 +24,13 @@
 
         </div>
 
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Generated Model</h3>
+        <div >
+            <div >
+                <div >
+                    <h3 >Generated Model</h3>
                 </div>
-                <div class="panel-body">
-                    <pre class="code">{{modelAsJson}}</pre>
+                <div >
+                    <pre >{{modelAsJson}}</pre>
                 </div>
             </div>
         </div>

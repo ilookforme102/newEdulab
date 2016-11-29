@@ -53,8 +53,7 @@
         color: #3c763d;
     }
 </style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<ul dnd-list dnd-drop="onDrop(list, item, index)">
+<ul dnd-list dnd-drop="onDrop(list, item, index)" flex>
     <li ng-repeat="item in list.items"
         dnd-draggable="getSelectedItemsIncluding(list, item)"
         dnd-dragstart="onDragstart(list, event)"
